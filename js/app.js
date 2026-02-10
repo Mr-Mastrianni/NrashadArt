@@ -9,29 +9,32 @@
 
 const products = {
     artwork: [
-        { id: 'urban-voices', name: 'Urban Voices', price: 450, category: 'Graffiti Art', image: 'graffiti' },
-        { id: 'color-theory', name: 'Color Theory', price: 380, category: 'Abstract', image: 'abstract' },
-        { id: 'identity-1', name: 'Identity No. 1', price: 520, category: 'Portrait', image: 'portrait' },
-        { id: 'florida-dreams', name: 'South Florida Dreams', price: 650, category: 'Painting', image: 'painting' },
-        { id: 'street-poetry', name: 'Street Poetry', price: 480, category: 'Graffiti Art', image: 'graffiti' },
-        { id: 'chaos-theory', name: 'Chaos Theory', price: 420, category: 'Abstract', image: 'abstract' },
+        { id: 'the-family', name: 'The Family', price: 15000, category: 'Original Art', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/IMG_1371-1f1ac47.jpg/:/rs=w:600,cg:true,m' },
+        { id: 'rebel', name: 'Rebel', price: 10000, category: 'Original Art', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/Rebel.jpg/:/rs=w:600,cg:true,m' },
+        { id: 'rich-mind', name: 'Rich Mind', price: 10000, category: 'Original Art', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/Rich%20Mind.jpg/:/rs=w:600,cg:true,m' },
+        { id: 'earth-angel', name: 'Earth Angel', price: 10000, category: 'Original Art', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/Earth%20Angel.jpg/:/rs=w:600,cg:true,m' },
+        { id: 'will-power', name: 'Will Power', price: 10000, category: 'Original Art', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/will%20power-e3c3fae.jpg/:/rs=w:600,cg:true,m' },
+        { id: 'green-head', name: 'Green Head', price: 8500, category: 'Original Art', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/Green_Head.png/:/rs=w:600,cg:true,m' },
+        { id: 'untitled-artwork', name: 'Untitled Artwork', price: 7500, category: 'Original Art', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/Untitled_Artwork(2).png/:/rs=w:600,cg:true,m' },
+        { id: 'the-friend', name: 'The Friend', price: 8000, category: 'Original Art', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/ols_The%20Friend.jpg/:/rs=w:600,cg:true,m' },
+        { id: 'madness', name: 'Madness', price: 9000, category: 'Original Art', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/Madness.jpg/:/rs=w:600,cg:true,m' },
+        { id: 'speak-no', name: 'Speak No', price: 8500, category: 'Original Art', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/Speak%20No.jpg/:/rs=w:600,cg:true,m' },
+        { id: 'cover-2', name: 'Cover 2', price: 7000, category: 'Original Art', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/Cover_2.png/:/rs=w:600,cg:true,m' },
+        { id: 'nrd-llc', name: 'NRD LLC', price: 6500, category: 'Original Art', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/NRDLLC.jpg/:/rs=w:600,cg:true,m' },
     ],
     prints: [
-        { id: 'print-1', name: 'Urban Voices - Limited Print', price: 85, category: 'Limited Edition', image: 'graffiti' },
-        { id: 'print-2', name: 'Abstract Dreams Print', price: 65, category: 'Print', image: 'abstract' },
-        { id: 'print-3', name: 'Street Life Series', price: 75, category: 'Series', image: 'graffiti' },
-        { id: 'print-4', name: 'Color Study No. 5', price: 55, category: 'Print', image: 'abstract' },
+        { id: 'print-earth-angel', name: 'Earth Angel - Limited Print', price: 150, category: 'Limited Edition Print', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/Earth%20Angel.jpg/:/rs=w:600,cg:true,m' },
+        { id: 'print-will-power', name: 'Will Power - Limited Print', price: 150, category: 'Limited Edition Print', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/will%20power-e3c3fae.jpg/:/rs=w:600,cg:true,m' },
+        { id: 'print-the-family', name: 'The Family - Limited Print', price: 200, category: 'Limited Edition Print', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/IMG_1371-1f1ac47.jpg/:/rs=w:600,cg:true,m' },
+        { id: 'print-rebel', name: 'Rebel - Limited Print', price: 150, category: 'Limited Edition Print', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/Rebel.jpg/:/rs=w:600,cg:true,m' },
+        { id: 'print-rich-mind', name: 'Rich Mind - Limited Print', price: 150, category: 'Limited Edition Print', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/Rich%20Mind.jpg/:/rs=w:600,cg:true,m' },
+        { id: 'print-madness', name: 'Madness - Limited Print', price: 125, category: 'Limited Edition Print', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/Madness.jpg/:/rs=w:600,cg:true,m' },
     ],
     merch: [
-        { id: 'tee-1', name: 'NRashad Studios Tee', price: 35, category: 'Apparel', image: 'merch' },
-        { id: 'tee-2', name: 'Art That Declares Tee', price: 35, category: 'Apparel', image: 'merch' },
-        { id: 'hoodie-1', name: 'NRD Art Hoodie', price: 65, category: 'Apparel', image: 'merch' },
-        { id: 'cap-1', name: 'Studio Snapback', price: 28, category: 'Accessories', image: 'merch' },
+        { id: 'nrd-graphic-tee', name: 'NRD Graphic T-Shirt', price: 150, category: 'Apparel', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/IMG_5870.jpg/:/rs=w:600,cg:true,m' },
     ],
     digital: [
-        { id: 'digital-1', name: 'Digital Art Pack Vol. 1', price: 25, category: 'Download', image: 'digital' },
-        { id: 'digital-2', name: 'Wallpaper Collection', price: 10, category: 'Download', image: 'digital' },
-        { id: 'digital-3', name: 'Tutorial: Graffiti Basics', price: 45, category: 'Course', image: 'digital' },
+        { id: 'digital-pack-1', name: 'Digital Art Pack Vol. 1', price: 50, category: 'Digital Download', image: 'https://img1.wsimg.com/isteam/ip/e8a1bc37-0514-4d1c-b440-f4f5ba1434d7/JrcAQ9gY.png/:/rs=w:600,cg:true,m' },
     ]
 };
 
@@ -622,9 +625,7 @@ function renderShopProducts() {
     shopGrid.innerHTML = items.map(item => `
         <div class="gallery-item shop-item" data-id="${item.id}">
             <div class="gallery-image">
-                <div class="image-placeholder ${item.image}-piece">
-                    <span class="piece-title">${item.name.split(' ').slice(0, 2).join(' ')}</span>
-                </div>
+                <img src="${item.image}" alt="${item.name}" loading="lazy">
                 <div class="gallery-overlay">
                     <button class="gallery-btn" onclick="addToCart('${item.id}')">
                         <i data-lucide="plus"></i>
@@ -634,7 +635,7 @@ function renderShopProducts() {
             <div class="gallery-info">
                 <h4>${item.name}</h4>
                 <span class="gallery-category">${item.category}</span>
-                <span class="gallery-price">$${item.price}</span>
+                <span class="gallery-price">$${item.price.toLocaleString()}</span>
             </div>
         </div>
     `).join('');
