@@ -823,13 +823,17 @@
                     Be the first to know about new artwork, upcoming events, exclusive discounts, 
                     and behind-the-scenes content. No spam, just art.
                 </p>
-                <form class="newsletter-form" id="newsletter-form">
+                <form class="newsletter-form" id="newsletter-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                     <div class="form-group">
                         <input type="text" name="firstName" placeholder="First Name" required>
                     </div>
                     <div class="form-group">
                         <input type="email" name="email" placeholder="Email Address" required>
                     </div>
+                    <!-- Optional: Redirect after submission -->
+                    <input type="hidden" name="_next" value="https://nrashadart.com/?subscribed=true">
+                    <!-- Optional: Subject line for email notifications -->
+                    <input type="hidden" name="_subject" value="New Newsletter Subscriber - NRashad Studios">
                     <button type="submit" class="btn btn-primary btn-large">
                         <span>Subscribe</span>
                         <i data-lucide="send"></i>

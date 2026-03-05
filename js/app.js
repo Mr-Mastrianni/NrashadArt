@@ -1000,29 +1000,13 @@ function handleEventRSVP(e, eventId) {
 // ==========================================
 
 function initForms() {
-    // Newsletter form
-    const newsletterForm = document.getElementById('newsletter-form');
-    newsletterForm?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(newsletterForm);
-        
-        // Show success message
-        showToast('Welcome to the creative community! Check your email for a special discount.', 'success');
-        newsletterForm.reset();
-
-        // In production, send to your email service (Mailchimp, ConvertKit, etc.)
-        // Example:
-        /*
-        fetch('/api/newsletter', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                firstName: formData.get('firstName'),
-                email: formData.get('email')
-            })
-        });
-        */
-    });
+    // Newsletter form - Formspree handles the submission
+    // Check for successful submission redirect
+    if (window.location.search.includes('subscribed=true')) {
+        showToast('Welcome to the creative community! Check your email for updates.', 'success');
+        // Clean up URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
 
     // Contact form
     const contactForm = document.getElementById('contact-form');
