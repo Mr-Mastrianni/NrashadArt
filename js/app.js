@@ -90,7 +90,7 @@ const liveStreamConfig = {
     youtubeLiveVideoId: '', // e.g., 'dQw4w9WgXcQ' - leave empty if not live
     
     // Your YouTube Channel URL for the subscribe button
-    youtubeChannelUrl: 'https://www.youtube.com/@NRashadStudios',
+    youtubeChannelUrl: 'https://www.youtube.com/@nrashadstudios9017',
     
     // Next scheduled stream (set to future date)
     nextStreamDate: new Date('2026-04-25T19:00:00'), // April 25, 2026 at 7:00 PM
