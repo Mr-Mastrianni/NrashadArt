@@ -93,7 +93,7 @@ const liveStreamConfig = {
     youtubeChannelUrl: 'https://www.youtube.com/@NRashadStudios',
     
     // Next scheduled stream (set to future date)
-    nextStreamDate: new Date('2026-03-15T19:00:00'), // March 15, 2026 at 7:00 PM
+    nextStreamDate: new Date('2026-04-25T19:00:00'), // April 25, 2026 at 7:00 PM
     
     // Event name for the upcoming stream
     nextStreamEvent: 'Paint & Sip Live Session',
