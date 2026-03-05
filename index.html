@@ -41,6 +41,10 @@
             </a>
             <div class="nav-links">
                 <a href="#about" class="nav-link">About</a>
+                <a href="#live-stream" class="nav-link">
+                    Live
+                    <span class="nav-live-dot"></span>
+                </a>
                 <a href="#events" class="nav-link">Events</a>
                 <a href="#gallery" class="nav-link">Gallery</a>
                 <a href="#shop" class="nav-link">Shop</a>
@@ -58,6 +62,7 @@
     <div class="mobile-menu">
         <div class="mobile-menu-content">
             <a href="#about" class="mobile-link">About</a>
+            <a href="#live-stream" class="mobile-link">Live</a>
             <a href="#events" class="mobile-link">Events</a>
             <a href="#gallery" class="mobile-link">Gallery</a>
             <a href="#shop" class="mobile-link">Shop</a>
@@ -182,6 +187,142 @@
                         <span class="stat-number" data-count="800">0</span>
                         <span class="stat-label">+ Happy Clients</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Stream Section -->
+    <section class="live-stream" id="live-stream">
+        <div class="live-stream-container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <span class="live-indicator" id="live-indicator" style="display: none;">
+                        <span class="live-pulse"></span>
+                        LIVE NOW
+                    </span>
+                    <span id="upcoming-badge">Upcoming Stream</span>
+                </div>
+                <h2 class="section-title">Watch Live</h2>
+                <p class="section-subtitle" id="stream-subtitle">Join the creative process in real-time</p>
+            </div>
+            
+            <div class="live-stream-wrapper">
+                <!-- YouTube Live Embed -->
+                <div class="live-player-container" id="live-player" style="display: none;">
+                    <iframe 
+                        id="youtube-embed"
+                        src="" 
+                        title="NRashad Studios Live Stream"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                
+                <!-- Countdown / Starting Soon State -->
+                <div class="stream-countdown" id="stream-countdown">
+                    <div class="countdown-visual">
+                        <div class="countdown-icon">
+                            <i data-lucide="video"></i>
+                        </div>
+                        <div class="countdown-pulse"></div>
+                    </div>
+                    <h3 class="countdown-title" id="countdown-title">Stream Starting Soon</h3>
+                    <p class="countdown-event" id="countdown-event">Paint & Sip Live Session</p>
+                    <div class="countdown-timer" id="countdown-timer">
+                        <div class="countdown-unit">
+                            <span class="countdown-value" id="days">00</span>
+                            <span class="countdown-label">Days</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-value" id="hours">00</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-value" id="minutes">00</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-value" id="seconds">00</span>
+                            <span class="countdown-label">Seconds</span>
+                        </div>
+                    </div>
+                    <div class="countdown-actions">
+                        <a href="#newsletter" class="btn btn-primary">
+                            <i data-lucide="bell"></i>
+                            <span>Get Notified</span>
+                        </a>
+                        <a href="https://www.youtube.com/@NRashadStudios" target="_blank" rel="noopener" class="btn btn-secondary">
+                            <i data-lucide="youtube"></i>
+                            <span>Subscribe on YouTube</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Stream Info Bar -->
+                <div class="stream-info-bar" id="stream-info-bar" style="display: none;">
+                    <div class="stream-info-item">
+                        <i data-lucide="users"></i>
+                        <span id="viewer-count">Join other viewers</span>
+                    </div>
+                    <div class="stream-info-item">
+                        <i data-lucide="message-circle"></i>
+                        <span>Chat with us live!</span>
+                    </div>
+                    <div class="stream-info-item stream-event-name">
+                        <i data-lucide="palette"></i>
+                        <span id="current-event-name">Live Art Session</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Past Streams Grid -->
+            <div class="past-streams" id="past-streams">
+                <h3 class="past-streams-title">Recent Streams</h3>
+                <div class="past-streams-grid">
+                    <div class="past-stream-card">
+                        <div class="past-stream-thumb">
+                            <div class="play-overlay">
+                                <i data-lucide="play-circle"></i>
+                            </div>
+                            <span class="stream-duration">1:24:30</span>
+                        </div>
+                        <div class="past-stream-info">
+                            <h4>Abstract Portrait Live Paint</h4>
+                            <span class="past-stream-date">Feb 15, 2026</span>
+                        </div>
+                    </div>
+                    <div class="past-stream-card">
+                        <div class="past-stream-thumb">
+                            <div class="play-overlay">
+                                <i data-lucide="play-circle"></i>
+                            </div>
+                            <span class="stream-duration">45:20</span>
+                        </div>
+                        <div class="past-stream-info">
+                            <h4>Q&A with Rashad</h4>
+                            <span class="past-stream-date">Feb 8, 2026</span>
+                        </div>
+                    </div>
+                    <div class="past-stream-card">
+                        <div class="past-stream-thumb">
+                            <div class="play-overlay">
+                                <i data-lucide="play-circle"></i>
+                            </div>
+                            <span class="stream-duration">2:10:15</span>
+                        </div>
+                        <div class="past-stream-info">
+                            <h4>Studio Session - Full Process</h4>
+                            <span class="past-stream-date">Jan 28, 2026</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="past-streams-cta">
+                    <a href="https://www.youtube.com/@NRashadStudios/streams" target="_blank" rel="noopener" class="btn btn-outline">
+                        <span>View All Past Streams</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>

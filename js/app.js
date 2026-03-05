@@ -78,11 +78,56 @@ const eventDetails = {
 };
 
 // ==========================================
+// Live Stream Configuration
+// ==========================================
+
+const liveStreamConfig = {
+    // Set to true when streaming live
+    isLive: false,
+    
+    // Your YouTube Channel ID or Live Video ID
+    // When live, update this with your actual live video ID
+    youtubeLiveVideoId: '', // e.g., 'dQw4w9WgXcQ' - leave empty if not live
+    
+    // Your YouTube Channel URL for the subscribe button
+    youtubeChannelUrl: 'https://www.youtube.com/@NRashadStudios',
+    
+    // Next scheduled stream (set to future date)
+    nextStreamDate: new Date('2026-03-15T19:00:00'), // March 15, 2026 at 7:00 PM
+    
+    // Event name for the upcoming stream
+    nextStreamEvent: 'Paint & Sip Live Session',
+    
+    // Past streams data (update with actual YouTube video IDs)
+    pastStreams: [
+        { 
+            title: 'Abstract Portrait Live Paint', 
+            date: 'Feb 15, 2026', 
+            duration: '1:24:30',
+            videoId: '' // Add YouTube video ID here
+        },
+        { 
+            title: 'Q&A with Rashad', 
+            date: 'Feb 8, 2026', 
+            duration: '45:20',
+            videoId: ''
+        },
+        { 
+            title: 'Studio Session - Full Process', 
+            date: 'Jan 28, 2026', 
+            duration: '2:10:15',
+            videoId: ''
+        }
+    ]
+};
+
+// ==========================================
 // State Management
 // ==========================================
 
 let cart = [];
 let currentCategory = 'artwork';
+let countdownInterval = null;
 
 // ==========================================
 // DOM Elements
@@ -1047,6 +1092,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTestimonials();
     initForms();
     initSmoothScroll();
+    initLiveStream();
 
     // Add CSS for modal elements
     const modalStyles = document.createElement('style');
@@ -1184,6 +1230,179 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(modalStyles);
 });
+
+// ==========================================
+// Live Stream Functions
+// ==========================================
+
+function initLiveStream() {
+    const liveIndicator = document.getElementById('live-indicator');
+    const upcomingBadge = document.getElementById('upcoming-badge');
+    const livePlayer = document.getElementById('live-player');
+    const streamCountdown = document.getElementById('stream-countdown');
+    const streamInfoBar = document.getElementById('stream-info-bar');
+    const streamSubtitle = document.getElementById('stream-subtitle');
+    const countdownEvent = document.getElementById('countdown-event');
+    const currentEventName = document.getElementById('current-event-name');
+    
+    // Update event name
+    if (countdownEvent) {
+        countdownEvent.textContent = liveStreamConfig.nextStreamEvent;
+    }
+    if (currentEventName) {
+        currentEventName.textContent = liveStreamConfig.nextStreamEvent;
+    }
+    
+    // Check if currently live
+    if (liveStreamConfig.isLive && liveStreamConfig.youtubeLiveVideoId) {
+        // Show live state
+        showLiveState();
+    } else {
+        // Show countdown state
+        showCountdownState();
+        startCountdown();
+    }
+    
+    // Setup past stream cards click handlers
+    setupPastStreams();
+}
+
+function showLiveState() {
+    const liveIndicator = document.getElementById('live-indicator');
+    const upcomingBadge = document.getElementById('upcoming-badge');
+    const livePlayer = document.getElementById('live-player');
+    const streamCountdown = document.getElementById('stream-countdown');
+    const streamInfoBar = document.getElementById('stream-info-bar');
+    const streamSubtitle = document.getElementById('stream-subtitle');
+    const youtubeEmbed = document.getElementById('youtube-embed');
+    
+    if (liveIndicator) liveIndicator.style.display = 'inline-flex';
+    if (upcomingBadge) upcomingBadge.style.display = 'none';
+    if (livePlayer) livePlayer.style.display = 'block';
+    if (streamCountdown) streamCountdown.style.display = 'none';
+    if (streamInfoBar) streamInfoBar.style.display = 'flex';
+    if (streamSubtitle) streamSubtitle.textContent = 'Join the live creative session now!';
+    
+    // Set YouTube embed URL for live stream
+    if (youtubeEmbed && liveStreamConfig.youtubeLiveVideoId) {
+        youtubeEmbed.src = `https://www.youtube.com/embed/${liveStreamConfig.youtubeLiveVideoId}?autoplay=1&mute=1`;
+    }
+    
+    // Clear countdown if running
+    if (countdownInterval) {
+        clearInterval(countdownInterval);
+        countdownInterval = null;
+    }
+}
+
+function showCountdownState() {
+    const liveIndicator = document.getElementById('live-indicator');
+    const upcomingBadge = document.getElementById('upcoming-badge');
+    const livePlayer = document.getElementById('live-player');
+    const streamCountdown = document.getElementById('stream-countdown');
+    const streamInfoBar = document.getElementById('stream-info-bar');
+    
+    if (liveIndicator) liveIndicator.style.display = 'none';
+    if (upcomingBadge) upcomingBadge.style.display = 'inline';
+    if (livePlayer) livePlayer.style.display = 'none';
+    if (streamCountdown) streamCountdown.style.display = 'block';
+    if (streamInfoBar) streamInfoBar.style.display = 'none';
+}
+
+function startCountdown() {
+    const targetDate = liveStreamConfig.nextStreamDate;
+    
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate.getTime() - now;
+        
+        if (distance < 0) {
+            // Stream time reached - show "Starting Soon" message
+            document.getElementById('days').textContent = '00';
+            document.getElementById('hours').textContent = '00';
+            document.getElementById('minutes').textContent = '00';
+            document.getElementById('seconds').textContent = '00';
+            
+            const countdownTitle = document.getElementById('countdown-title');
+            if (countdownTitle) {
+                countdownTitle.textContent = 'Starting Very Soon!';
+            }
+            return;
+        }
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+    
+    updateCountdown();
+    countdownInterval = setInterval(updateCountdown, 1000);
+}
+
+function setupPastStreams() {
+    const pastStreamCards = document.querySelectorAll('.past-stream-card');
+    
+    pastStreamCards.forEach((card, index) => {
+        const stream = liveStreamConfig.pastStreams[index];
+        if (stream && stream.videoId) {
+            card.addEventListener('click', () => {
+                window.open(`https://www.youtube.com/watch?v=${stream.videoId}`, '_blank');
+            });
+            card.style.cursor = 'pointer';
+        } else {
+            // No video ID - show coming soon or disabled state
+            card.style.opacity = '0.6';
+            card.addEventListener('click', () => {
+                showNotification('Video coming soon!', 'info');
+            });
+        }
+    });
+}
+
+// Helper function to show notifications (reuse existing if available)
+function showNotification(message, type = 'info') {
+    // Check if there's an existing notification function
+    if (typeof window.showNotification === 'function') {
+        window.showNotification(message, type);
+        return;
+    }
+    
+    // Simple fallback notification
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: ${type === 'error' ? '#ff3366' : '#33ccff'};
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        font-family: var(--font-body);
+        z-index: 10000;
+        animation: slideIn 0.3s ease;
+    `;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
+
+// Function to manually toggle live state (for testing or admin use)
+function toggleLiveState(isLive, videoId = '') {
+    liveStreamConfig.isLive = isLive;
+    if (videoId) {
+        liveStreamConfig.youtubeLiveVideoId = videoId;
+    }
+    initLiveStream();
+}
 
 // ==========================================
 // Utility Functions
